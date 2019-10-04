@@ -136,12 +136,13 @@
 			defTop.outerHTML = wet.builder.appTop({
 				"cdnEnv": "esdcprod",
 				"appName": [{"text": "Nom de l'application", "href": "#"}],
-				"lngLinks": [{"lang": "en", "href": "apptop_custommenu-fr.shtml", "text": "English"}],
+				"lngLinks": [{"lang": "en", "href": "@ViewData["Toggle"]", "text": "English"}],
 				"menuPath": "../ajax/appmenu-fr.html"
 			});
     </script>
     <main property="mainContentOfPage" typeof="WebPageElement" class="container">
         @RenderBody()
+        @ViewData["Toggle"]
         <!-- fr layout -->
         <!--<div data-ajax-replace="../ajax/securesamples-fr.html"></div> -->
         <div id="def-preFooter">
