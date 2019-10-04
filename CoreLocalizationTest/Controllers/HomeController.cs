@@ -4,8 +4,10 @@ using CoreLocalizationTest.Models;
 
 namespace CoreLocalizationTest.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
+        [HttpGet("/{culture:regex(en)}/home")]
+        [HttpGet("/{culture:regex(fr)}/accueil")]
         public IActionResult Index()
         {
             return View();

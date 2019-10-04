@@ -136,9 +136,9 @@
             <h2 class="wb-inv">Menu de navigation principal</h2>
             <div class="row">
                 <ul class="list-inline menu" role="menubar">
-                    <li><a href="#" class="item">Accueil</a></li>
-                    <li><a href="#" class="item">Mes services</a></li>
-                    <li><a href="#s2" class="item">Mes requêtes</a></li>
+                    <li><a href="/fr/accueil" class="item">Accueil</a></li>
+                    <li><a href="/fr/tableaudebord/services" class="item">Mes services</a></li>
+                    <li><a href="/fr/tableaudebord/demandesdeservice" class="item">Mes requêtes</a></li>
                 </ul>
             </div>
         </div>
@@ -157,7 +157,6 @@
     </script>
     <main property="mainContentOfPage" typeof="WebPageElement" class="container">
         @RenderBody()
-        @ViewData["Toggle"]
         <!-- fr layout -->
         <!--<div data-ajax-replace="../ajax/securesamples-fr.html"></div> -->
         <div id="def-preFooter">
