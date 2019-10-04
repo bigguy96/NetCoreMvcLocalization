@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using CoreLocalizationTest.Models;
 
 namespace CoreLocalizationTest.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
+        [HttpGet("/{culture:regex(en)}/home")]
+        [HttpGet("/{culture:regex(fr)}/accueil")]
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }

@@ -120,4 +120,16 @@
   <data name="Hello" xml:space="preserve">
     <value>Hello in English!</value>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>English Home Page</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="ServiceRequests" xml:space="preserve">
+    <value>Service Requests Page</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Services Page</value>
+  </data>
 </root>

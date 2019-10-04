@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Localization.Routing;
 using Microsoft.AspNetCore.Mvc;
@@ -36,13 +32,6 @@ namespace CoreLocalizationTest
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //services.AddLocalization(options => options.ResourcesPath = "Resources");
-
-            //services.AddMvc()
-            //    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-            //    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-            //    .AddDataAnnotationsLocalization();
-
             services
                 .AddLocalization(o => o.ResourcesPath = "Resources")
                 .AddMvc(o => o.EnableEndpointRouting = false)
@@ -63,38 +52,8 @@ namespace CoreLocalizationTest
                 app.UseHsts();
             }
 
-            //app.UseHttpsRedirection();
-            //app.UseStaticFiles();
-            //app.UseCookiePolicy();
-
-            //var supportedCultures = new[]
-            //{
-            //    new CultureInfo("en"),
-            //    new CultureInfo("fr"),
-            //};
-
-            //app.UseRequestLocalization(new RequestLocalizationOptions
-            //{
-            //    DefaultRequestCulture = new RequestCulture("en"),
-            //    // Formatting numbers, dates, etc.
-            //    SupportedCultures = supportedCultures,
-            //    // UI strings that we have localized.
-            //    SupportedUICultures = supportedCultures
-            //});
-
-            //app.UseRequestLocalization(o =>
-            //{
-            //    o.SupportedCultures = o.SupportedUICultures = new[]
-            //    {
-            //        new CultureInfo("en"),
-            //        new CultureInfo("fr")
-            //    };
-
-            //    o.DefaultRequestCulture = new RequestCulture(o.SupportedCultures[0]);
-            //    o.RequestCultureProviders.Insert(0, new RouteDataRequestCultureProvider() { Options = o });
-            //});
-
-            //app.UseMvcWithDefaultRoute();
+            app.UseHttpsRedirection();
+            app.UseCookiePolicy();
 
             IList<CultureInfo> supportedCultures = new List<CultureInfo>
             {
@@ -111,6 +70,7 @@ namespace CoreLocalizationTest
 
             var requestProvider = new RouteDataRequestCultureProvider();
             localizationOptions.RequestCultureProviders.Insert(0, requestProvider);
+
             app.UseRouter(routes =>
             {
                 routes.MapMiddlewareRoute("{culture=en}/{*mvcRoute}", subApp =>
@@ -124,13 +84,6 @@ namespace CoreLocalizationTest
                     });
                 });
             });
-
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute(
-            //        name: "default",
-            //        template: "{controller=Home}/{action=Index}/{id?}");
-            //});
         }
     }
 }
