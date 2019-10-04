@@ -66,7 +66,7 @@
                         <li><a lang="fr" href="[Default URL for language flip]">Français</a></li>
                     </ul>
                 </section>
-                    -->
+                -->
                 <div class="row">
                     <div class="brand col-xs-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
                         <a href="https://www.canada.ca/en.html" property="url">
@@ -129,14 +129,28 @@
             -->
         </header>
     </div>
+
+    <nav class="wb-menu visible-md visible-lg" id="wb-sm">
+        <div class="pnl-strt container nvbar">
+            <h2 class="wb-inv">Main navigation menu</h2>
+            <div class="row">
+                <ul class="list-inline menu" role="menubar">
+                    <li><a href="#" class="item">Home</a></li>
+                    <li><a href="#" class="item">My Services</a></li>
+                    <li><a href="#" class="item">My Requests</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <!-- Write closure template -->
     <script>
         var defTop = document.getElementById("def-top");
         defTop.outerHTML = wet.builder.appTop({
             "cdnEnv": "esdcprod",
-            "appName": [{ "text": "Application name", "href": "#" }],
-            "lngLinks": [{"lang": "fr", "href": "@ViewData["Toggle"]", "text": "Français"}],
-            "menuPath": "../ajax/appmenu-en.html"
+            "appName": [{ "text": "myTC Account", "href": "#" }],
+            "lngLinks": [{ "lang": "fr", "href": "@ViewData["Toggle"]", "text": "Français" }],
+            "appSettings": [{"href": "#"}],
+            "signOut": [{"href": "#"}]
         });
     </script>
     <main property="mainContentOfPage" typeof="WebPageElement" class="container">

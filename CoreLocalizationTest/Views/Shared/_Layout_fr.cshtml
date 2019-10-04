@@ -38,10 +38,10 @@
     </noscript>
     <!-- Write closure template -->
     <script>
-			document.write(wet.builder.refTop({
-				"cdnEnv": "esdcprod",
-				"isApplication": true
-			}));
+        document.write(wet.builder.refTop({
+            "cdnEnv": "esdcprod",
+            "isApplication": true
+        }));
     </script>
 </head>
 <body vocab="http://schema.org/" typeof="WebPage">
@@ -130,14 +130,29 @@
             -->
         </header>
     </div>
+
+    <nav class="wb-menu visible-md visible-lg" id="wb-sm">
+        <div class="pnl-strt container nvbar">
+            <h2 class="wb-inv">Menu de navigation principal</h2>
+            <div class="row">
+                <ul class="list-inline menu" role="menubar">
+                    <li><a href="#" class="item">Accueil</a></li>
+                    <li><a href="#" class="item">Mes services</a></li>
+                    <li><a href="#s2" class="item">Mes requêtes</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <!-- Write closure template -->
     <script>
 			var defTop = document.getElementById("def-top");
 			defTop.outerHTML = wet.builder.appTop({
 				"cdnEnv": "esdcprod",
-				"appName": [{"text": "Nom de l'application", "href": "#"}],
+				"appName": [{"text": "monCompte TC", "href": "#"}],
 				"lngLinks": [{"lang": "en", "href": "@ViewData["Toggle"]", "text": "English"}],
-				"menuPath": "../ajax/appmenu-fr.html"
+                "appSettings": [{"href": "#"}],
+                "signOut": [{"href": "#"}]
 			});
     </script>
     <main property="mainContentOfPage" typeof="WebPageElement" class="container">
@@ -216,18 +231,18 @@
     </div>
     <!-- Write closure template -->
     <script>
-			var defFooter = document.getElementById("def-footer");
-			defFooter.outerHTML = wet.builder.appFooter({
-				"cdnEnv": "esdcprod",
-				"showFeatures": false
-			});
+        var defFooter = document.getElementById("def-footer");
+        defFooter.outerHTML = wet.builder.appFooter({
+            "cdnEnv": "esdcprod",
+            "showFeatures": false
+        });
     </script>
     <!-- Write closure template -->
     <script>
-			document.write(wet.builder.refFooter({
-				"cdnEnv": "esdcprod",
-				"isApplication": true
-			}));
+        document.write(wet.builder.refFooter({
+            "cdnEnv": "esdcprod",
+            "isApplication": true
+        }));
     </script>
 </body>
 </html>
