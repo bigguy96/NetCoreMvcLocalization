@@ -1,5 +1,4 @@
 ﻿
-
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
 <!--[if gt IE 8]><!-->
@@ -136,41 +135,42 @@
         defTop.outerHTML = wet.builder.appTop({
             "cdnEnv": "esdcprod",
             "appName": [{ "text": "Application name", "href": "#" }],
-            "lngLinks": [{ "lang": "fr", "href": "apptop_custommenu-fr.shtml", "text": "Français" }],
+            "lngLinks": [{"lang": "fr", "href": "apptop_custommenu-fr.shtml", "text": "Français"}],
             "menuPath": "../ajax/appmenu-en.html"
         });
     </script>
-<main property="mainContentOfPage" typeof="WebPageElement" class="container">
-    @RenderBody()
-    <!-- <div data-ajax-replace="../ajax/securesamples.html"></div> -->
-    <div id="def-preFooter">
-        <!-- Write closure fall-back static file -->
-        <!-- /ROOT/app/cls/WET/gcweb/v4_0_31/cdts/static/preFooter-en.html -->
-        <div class="pagedetails">
-            <div class="row">
-                <div class="col-sm-6 col-md-5 col-lg-4">
-                    <a href="https://www.canada.ca/en/report-problem.html" class="btn btn-default text-center">Report a problem on this page</a>
+    <main property="mainContentOfPage" typeof="WebPageElement" class="container">
+        @RenderBody()
+        <!-- en layout -->
+        <!-- <div data-ajax-replace="../ajax/securesamples.html"></div> -->
+        <div id="def-preFooter">
+            <!-- Write closure fall-back static file -->
+            <!-- /ROOT/app/cls/WET/gcweb/v4_0_31/cdts/static/preFooter-en.html -->
+            <div class="pagedetails">
+                <div class="row">
+                    <div class="col-sm-6 col-md-5 col-lg-4">
+                        <a href="https://www.canada.ca/en/report-problem.html" class="btn btn-default text-center">Report a problem on this page</a>
+                    </div>
                 </div>
+                <!-- Share button -->
+                <!-- <div class="wb-share col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div> -->
+                <!-- END Share button -->
+                <dl id="wb-dtmd">
+                    <dt>Date modified: </dt>
+                    <dd><time property="dateModified">2019-03-01</time></dd>
+                </dl>
             </div>
-            <!-- Share button -->
-            <!-- <div class="wb-share col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div> -->
-            <!-- END Share button -->
-            <dl id="wb-dtmd">
-                <dt>Date modified: </dt>
-                <dd><time property="dateModified">2019-03-01</time></dd>
-            </dl>
-        </div>
 
-    </div>
-    <!-- Write closure template -->
-    <script>
-        var defPreFooter = document.getElementById("def-preFooter");
-        defPreFooter.outerHTML = wet.builder.preFooter({
-            "cdnEnv": "esdcprod",
-            "dateModified": "2019-07-31"
-        });
-    </script>
-</main>
+        </div>
+        <!-- Write closure template -->
+        <script>
+            var defPreFooter = document.getElementById("def-preFooter");
+            defPreFooter.outerHTML = wet.builder.preFooter({
+                "cdnEnv": "esdcprod",
+                "dateModified": "2019-07-31"
+            });
+        </script>
+    </main>
     <div id="def-footer">
         <!-- Write closure fall-back static file -->
         <!-- /ROOT/app/cls/WET/gcweb/v4_0_31/cdts/static/appFooter-en.html -->

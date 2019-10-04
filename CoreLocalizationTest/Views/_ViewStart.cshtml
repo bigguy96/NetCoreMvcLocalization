@@ -1,3 +1,13 @@
-﻿@{
-    Layout = "_Layout";
+﻿@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Localization
+@{
+    var requestCultureFeature = this.Context.Features.Get<IRequestCultureFeature>();
+    var twoLetterRequestCulture = requestCultureFeature.RequestCulture.UICulture.TwoLetterISOLanguageName;
 }
+
+
+@{
+
+    Layout = "_Layout_" + twoLetterRequestCulture; 
+} 
+

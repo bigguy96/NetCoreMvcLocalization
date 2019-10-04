@@ -120,4 +120,7 @@
   <data name="Hello" xml:space="preserve">
     <value>Hello in English!</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>Français</value>
+  </data>
 </root>
