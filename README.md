@@ -1,2 +1,2 @@
-# .NET Core Mvc Localization
-Sample .NET Core MVC application which uses Localization to have bilingual pages and content.
+# .NET Core Bilingual MVC
+Attempt at making a bilingual MVC application which uses localization and CDTS web template.
