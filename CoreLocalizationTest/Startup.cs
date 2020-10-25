@@ -5,11 +5,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Localization.Routing;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace CoreLocalizationTest
 {
@@ -34,13 +33,12 @@ namespace CoreLocalizationTest
 
             services
                 .AddLocalization(o => o.ResourcesPath = "Resources")
-                .AddMvc(o => o.EnableEndpointRouting = false)
-                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix, o => o.ResourcesPath = "Resources")
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                .AddRouting()
+                .AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -54,6 +52,9 @@ namespace CoreLocalizationTest
 
             app.UseHttpsRedirection();
             app.UseCookiePolicy();
+            app.UseRequestLocalization();
+            app.UseStaticFiles();
+            app.UseRouting();
 
             IList<CultureInfo> supportedCultures = new List<CultureInfo>
             {
@@ -76,11 +77,10 @@ namespace CoreLocalizationTest
                 routes.MapMiddlewareRoute("{culture=en}/{*mvcRoute}", subApp =>
                 {
                     subApp.UseRequestLocalization(localizationOptions);
-                    subApp.UseMvc(mvcRoutes =>
+                    subApp.UseRouting();
+                    subApp.UseEndpoints(mvcRoutes =>
                     {
-                        mvcRoutes.MapRoute(
-                            name: "default",
-                            template: "{culture=en}/{controller=Home}/{action=Index}/{id?}");
+                        mvcRoutes.MapControllerRoute("default", "{culture=en}/{controller=Home}/{action=Index}/{id?}");
                     });
                 });
             });
